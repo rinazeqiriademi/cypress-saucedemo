@@ -1,7 +1,15 @@
 class Authorization {
     login(username: string, password: string) {
-        cy.get('[data-test="username"]').type(username);
-        cy.get('[data-test="password"]').type(password);
+        if(username != null && username != '') {
+            cy.get('[data-test="username"]').type(username);
+        } else {
+            cy.get('[data-test="username"]');
+        }
+        if(password != null && password != '') {
+            cy.get('[data-test="password"]').type(password);
+        } else {
+            cy.get('[data-test="password"]');
+        }
         cy.get('[data-test="login-button"]').click();
     }
 
